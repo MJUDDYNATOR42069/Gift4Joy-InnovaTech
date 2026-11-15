@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "300484744435",
+    "project_id": "gift4joy",
+    "storage_bucket": "gift4joy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300484744435:android:7992b856c4be5ee21dd386",
+        "android_client_info": {
+          "package_name": "com.example.gift4joy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300484744435-r0emdmniqbacrgfr7o24b20h45qusk6d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gift4joy",
+            "certificate_hash": "5ea5e19f11501bb203f692dec71d5d0617910e48"
+          }
+        },
+        {
+          "client_id": "300484744435-jt9ceqdj87bbimhs66frmqu15me58fe6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD940DUaO6Q-e34T29Hu5CgIQIm_dUL7wA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300484744435-jt9ceqdj87bbimhs66frmqu15me58fe6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

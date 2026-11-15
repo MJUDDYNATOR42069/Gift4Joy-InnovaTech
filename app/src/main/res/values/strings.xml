@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Gift4Joy</string>
+    <string name="default_web_client_id">YOUR_DEFAULT_WEB_CLIENT_ID</string>
+    <string name="facebook_app_id">0000000000000000</string>
+    <string name="facebook_client_token">00000000000000000000000000000000</string>
+    <string name="fb_login_protocol_scheme">fb0000000000000000</string>
+</resources>

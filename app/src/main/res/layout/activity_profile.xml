@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F6F7"
+    tools:context=".profile">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/profileScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- HEADER / PROFILE INFO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="16dp">
+
+            <!-- Avatar Circle -->
+            <FrameLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/bg_avatar_circle">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="L"
+                    android:textColor="@android:color/white"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <!-- Name -->
+            <TextView
+                android:id="@+id/tvProfileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="serif"
+                android:text="Loading Profile..."
+                android:textColor="#212121"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Email -->
+            <TextView
+                android:id="@+id/tvProfileEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="lindiwe@example.com"
+                android:textColor="#757575"
+                android:textSize="14sp" />
+
+            <!-- Edit Profile Button -->
+            <Button
+                android:id="@+id/btnEditProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_btn_edit_profile"
+                android:paddingHorizontal="24dp"
+                android:text="Edit profile"
+                android:textAllCaps="false"
+                android:textColor="#D81B60"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- MENU ITEMS CONTAINER -->
+        <LinearLayout
+            android:id="@+id/menuItemsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/navDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavLayout" />
+
+    <LinearLayout
+        android:id="@+id/bottomNavLayout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout android:id="@+id/navHome" style="@style/BottomNavItem">
+            <ImageView style="@style/BottomNavIcon" android:src="@android:drawable/ic_menu_view" app:tint="#757575" />
+            <TextView style="@style/BottomNavText" android:text="Home" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/navShop" style="@style/BottomNavItem">
+            <ImageView style="@style/BottomNavIcon" android:src="@android:drawable/ic_menu_agenda" app:tint="#757575" />
+            <TextView style="@style/BottomNavText" android:text="Shop" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/navWishlist" style="@style/BottomNavItem">
+            <ImageView style="@style/BottomNavIcon" android:src="@android:drawable/ic_menu_myplaces" app:tint="#757575" />
+            <TextView style="@style/BottomNavText" android:text="Wishlist" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/navCart" style="@style/BottomNavItem">
+            <ImageView style="@style/BottomNavIcon" android:src="@drawable/ic_gift" app:tint="#757575" />
+            <TextView style="@style/BottomNavText" android:text="Cart" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/navProfile" style="@style/BottomNavItem">
+            <ImageView style="@style/BottomNavIcon" android:src="@android:drawable/ic_menu_myplaces" app:tint="#D3154A" />
+            <TextView style="@style/BottomNavText" android:text="Profile" android:textColor="#D3154A" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

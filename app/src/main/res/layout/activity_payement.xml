@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF8F8"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gift4Joy"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#E91E63"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Checkout"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Cart"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#222222"/>
+
+        <LinearLayout
+            android:id="@+id/cartItemsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/tvOrderTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total: R 0.00"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:textColor="#E91E63"
+            android:layout_marginBottom="25dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Payment Method"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="12dp"/>
+
+        <RadioGroup
+            android:id="@+id/paymentRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioOnline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pay Online (Debit / Credit Card)"
+                android:textSize="16sp"
+                android:buttonTint="#E91E63"
+                android:padding="10dp"/>
+
+            <RadioButton
+                android:id="@+id/radioArrival"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pay Upon Arrival"
+                android:textSize="16sp"
+                android:buttonTint="#E91E63"
+                android:padding="10dp"/>
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/cardDetailsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Card Details"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#222222"
+                android:layout_marginBottom="12dp"/>
+
+            <EditText
+                android:id="@+id/etCardHolder"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Cardholder Name"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:backgroundTint="#E91E63"/>
+
+            <EditText
+                android:id="@+id/etCardNumber"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Card Number"
+                android:inputType="number"
+                android:maxLength="19"
+                android:padding="12dp"
+                android:backgroundTint="#E91E63"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etExpiry"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_weight="1"
+                    android:hint="MM/YY"
+                    android:inputType="text"
+                    android:maxLength="5"
+                    android:padding="12dp"
+                    android:backgroundTint="#E91E63"/>
+
+                <EditText
+                    android:id="@+id/etCVV"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_weight="1"
+                    android:hint="CVV"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:padding="12dp"
+                    android:backgroundTint="#E91E63"/>
+
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/cardSaveRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <RadioButton
+                    android:id="@+id/radioSaveCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Save Card for Future Payments"
+                    android:buttonTint="#E91E63"/>
+
+                <RadioButton
+                    android:id="@+id/radioUseOnce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Use Card Once"
+                    android:checked="true"
+                    android:buttonTint="#E91E63"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvPaymentDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select your preferred payment method."
+            android:textSize="14sp"
+            android:textColor="#777777"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/btnConfirmOrder"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="CONFIRM ORDER"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="#E91E63"/>
+
+    </LinearLayout>
+
+</ScrollView>
