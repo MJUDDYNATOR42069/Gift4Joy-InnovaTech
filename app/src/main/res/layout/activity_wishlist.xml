@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F6F7">
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <!-- Top Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="serif"
+                    android:text="Wishlist"
+                    android:textColor="#8B1C3F"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_circle_white"
+                    android:padding="10dp"
+                    android:src="@android:drawable/ic_menu_search"
+                    app:tint="#212121" />
+            </RelativeLayout>
+
+            <!-- Saved Items List (Using LinearLayout for simplicity, RecyclerView is better for prod) -->
+            <LinearLayout
+                android:id="@+id/savedItemsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp">
+                <!-- Items will be inflated here by Kotlin -->
+            </LinearLayout>
+
+            <!-- Recommended Section Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:paddingHorizontal="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="serif"
+                    android:text="Recommended for you"
+                    android:textColor="#212121"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- Horizontal Recommendations -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:paddingStart="24dp"
+                android:paddingEnd="8dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/recommendedContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- Inflate item_product_grid.xml here via Kotlin -->
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation (Fixed) -->
+    <View
+        android:id="@+id/navDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavLayout" />
+
+    <LinearLayout
+        android:id="@+id/bottomNavLayout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Home -->
+        <LinearLayout android:id="@+id/navHome" style="@style/BottomNavItem">
+            <ImageView style="@style/BottomNavIcon" android:src="@android:drawable/ic_menu_view" app:tint="#757575" />
+            <TextView style="@style/BottomNavText" android:text="Home" />
+        </LinearLayout>
+
+        <!-- Shop -->
+        <LinearLayout android:id="@+id/navShop" style="@style/BottomNavItem">
+            <ImageView style="@style/BottomNavIcon" android:src="@android:drawable/ic_menu_agenda" app:tint="#757575" />
+            <TextView style="@style/BottomNavText" android:text="Shop" />
+        </LinearLayout>
+
+        <!-- Wishlist (Selected) -->
+        <LinearLayout android:id="@+id/navWishlist" style="@style/BottomNavItem">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView style="@style/BottomNavIcon" android:src="@android:drawable/ic_menu_myplaces" app:tint="#D3154A" />
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="-4dp"
+                    android:layout_marginEnd="-4dp"
+                    android:background="@drawable/bg_bottom_nav_badge"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp" />
+            </FrameLayout>
+            <TextView style="@style/BottomNavText" android:text="Wishlist" android:textColor="#D3154A" />
+        </LinearLayout>
+
+        <!-- Cart -->
+        <LinearLayout android:id="@+id/navCart" style="@style/BottomNavItem">
+            <ImageView style="@style/BottomNavIcon" android:src="@drawable/ic_gift" app:tint="#757575" />
+            <TextView style="@style/BottomNavText" android:text="Cart" />
+        </LinearLayout>
+
+        <!-- Profile -->
+        <LinearLayout android:id="@+id/navProfile" style="@style/BottomNavItem">
+            <ImageView style="@style/BottomNavIcon" android:src="@android:drawable/ic_menu_myplaces" app:tint="#757575" />
+            <TextView style="@style/BottomNavText" android:text="Profile" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

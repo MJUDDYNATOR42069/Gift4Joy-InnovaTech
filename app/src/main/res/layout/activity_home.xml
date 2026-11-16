@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F6F7">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
+
+            <!-- TOP HEADER -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="24dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Good afternoon"
+                        android:textColor="#757575"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvWelcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hi!"
+                        android:textColor="#212121"
+                        android:textSize="24sp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:contentDescription="Notifications"
+                        android:padding="10dp"
+                        android:src="@android:drawable/ic_popup_reminder"
+                        app:tint="#212121" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:contentDescription="Profile"
+                        android:padding="10dp"
+                        android:src="@android:drawable/ic_menu_myplaces"
+                        app:tint="#212121" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!-- SEARCH BAR -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="24dp"
+                android:background="@drawable/bg_search_bar"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="Search"
+                    android:src="@android:drawable/ic_menu_search"
+                    app:tint="#9E9E9E" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Search for gifts, hampers, décor..."
+                    android:textColorHint="#9E9E9E"
+                    android:textSize="14sp"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <!-- PROMO BANNER -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_promo_banner"
+                android:padding="24dp">
+
+                <TextView
+                    android:id="@+id/tvPromoTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LIMITED EDIT"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvPromoTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="serif"
+                    android:text="Gifts she'll actually love — curated for the ones who matter"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPromoTag" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@android:color/white"
+                    android:text="Shop the edit"
+                    android:textAllCaps="false"
+                    android:textColor="#D3154A"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPromoTitle" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- SHOP BY OCCASION -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:paddingHorizontal="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="serif"
+                    android:text="Shop by occasion"
+                    android:textColor="#212121"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="See all"
+                    android:textColor="#D3154A"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/ChipText"
+                        android:text="Birthday" />
+
+                    <TextView
+                        style="@style/ChipText"
+                        android:text="Anniversary" />
+
+                    <TextView
+                        style="@style/ChipText"
+                        android:text="New Baby" />
+
+                    <TextView
+                        style="@style/ChipText"
+                        android:text="Corporate" />
+
+                    <TextView
+                        style="@style/ChipText"
+                        android:text="Wedding" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <!-- TRENDING THIS WEEK -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:paddingHorizontal="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="serif"
+                    android:text="Trending this week"
+                    android:textColor="#212121"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSeeAllTrending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="See all"
+                    android:textColor="#D3154A"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTrending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:paddingStart="24dp"
+                android:paddingEnd="8dp" />
+
+            <!-- DELIVERY INFO CARDS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:background="#FCE4EC"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="Delivery"
+                        android:src="@android:drawable/ic_menu_directions"
+                        app:tint="#D3154A" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Same-day delivery across Durban on orders before 1pm"
+                        android:textColor="#424242"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:background="#FCE4EC"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="Gift wrapping"
+                        android:src="@android:drawable/ic_menu_gallery"
+                        app:tint="#D3154A" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Free premium gift-wrapping on every single order"
+                        android:textColor="#424242"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- SHOP BY CATEGORY -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="serif"
+                android:text="Shop by category"
+                android:textColor="#212121"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout style="@style/CategoryTile">
+
+                        <ImageView
+                            style="@style/CategoryIcon"
+                            android:src="@android:drawable/ic_menu_agenda" />
+
+                        <TextView
+                            style="@style/CategoryText"
+                            android:text="Birthday" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/CategoryTile">
+
+                        <ImageView
+                            style="@style/CategoryIcon"
+                            android:src="@android:drawable/ic_menu_myplaces" />
+
+                        <TextView
+                            style="@style/CategoryText"
+                            android:text="Anniversary" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/CategoryTile">
+
+                        <ImageView
+                            style="@style/CategoryIcon"
+                            android:src="@android:drawable/btn_star" />
+
+                        <TextView
+                            style="@style/CategoryText"
+                            android:text="New Baby" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/CategoryTile">
+
+                        <ImageView
+                            style="@style/CategoryIcon"
+                            android:src="@android:drawable/ic_menu_view" />
+
+                        <TextView
+                            style="@style/CategoryText"
+                            android:text="Corporate" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout style="@style/CategoryTile">
+
+                        <ImageView
+                            style="@style/CategoryIcon"
+                            android:src="@android:drawable/ic_menu_view" />
+
+                        <TextView
+                            style="@style/CategoryText"
+                            android:text="Home &amp; Living" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/CategoryTile">
+
+                        <ImageView
+                            style="@style/CategoryIcon"
+                            android:src="@android:drawable/ic_menu_slideshow" />
+
+                        <TextView
+                            style="@style/CategoryText"
+                            android:text="Self-Care" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/CategoryTile">
+
+                        <ImageView
+                            style="@style/CategoryIcon"
+                            android:src="@android:drawable/ic_menu_camera" />
+
+                        <TextView
+                            style="@style/CategoryText"
+                            android:text="Kids" />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/CategoryTile"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- BOTTOM NAVIGATION DIVIDER -->
+    <View
+        android:id="@+id/navDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavLayout" />
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <LinearLayout
+        android:id="@+id/bottomNavLayout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- HOME -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            style="@style/BottomNavItem">
+
+            <ImageView
+                style="@style/BottomNavIcon"
+                android:src="@android:drawable/ic_menu_view"
+                app:tint="#D3154A" />
+
+            <TextView
+                style="@style/BottomNavText"
+                android:text="Home"
+                android:textColor="#D3154A" />
+
+        </LinearLayout>
+
+        <!-- SHOP -->
+        <LinearLayout
+            android:id="@+id/navShop"
+            style="@style/BottomNavItem">
+
+            <ImageView
+                style="@style/BottomNavIcon"
+                android:src="@android:drawable/ic_menu_agenda"
+                app:tint="#757575" />
+
+            <TextView
+                style="@style/BottomNavText"
+                android:text="Shop" />
+
+        </LinearLayout>
+
+        <!-- WISHLIST -->
+        <LinearLayout
+            android:id="@+id/navWishlist"
+            style="@style/BottomNavItem">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    style="@style/BottomNavIcon"
+                    android:src="@android:drawable/ic_menu_myplaces"
+                    app:tint="#757575" />
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="-4dp"
+                    android:layout_marginEnd="-4dp"
+                    android:background="@drawable/bg_bottom_nav_badge"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp" />
+
+            </FrameLayout>
+
+            <TextView
+                style="@style/BottomNavText"
+                android:text="Wishlist" />
+
+        </LinearLayout>
+
+        <!-- CART -->
+        <LinearLayout
+            android:id="@+id/navCart"
+            style="@style/BottomNavItem">
+
+            <ImageView
+                style="@style/BottomNavIcon"
+                android:src="@drawable/ic_menu_shopping_cart"
+                app:tint="#757575" />
+
+            <TextView
+                style="@style/BottomNavText"
+                android:text="Cart" />
+
+        </LinearLayout>
+
+        <!-- PROFILE -->
+        <LinearLayout
+            android:id="@+id/navProfile"
+            style="@style/BottomNavItem">
+
+            <ImageView
+                style="@style/BottomNavIcon"
+                android:src="@android:drawable/ic_menu_myplaces"
+                app:tint="#757575" />
+
+            <TextView
+                style="@style/BottomNavText"
+                android:text="Profile" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

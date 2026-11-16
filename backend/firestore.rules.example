@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function owner() {
+      return signedIn() &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'owner';
+    }
+
+    match /users/{userId} {
+      allow read: if signedIn() && (request.auth.uid == userId || owner());
+      allow create: if signedIn() && request.auth.uid == userId && request.resource.data.role == 'user';
+      allow update: if signedIn() && request.auth.uid == userId &&
+        request.resource.data.role == resource.data.role;
+      allow delete: if false;
+    }
+
+    match /products/{productId} {
+      allow read: if true;
+      allow create, update, delete: if owner();
+    }
+
+    // Shared product photos for all customers. Only an owner can publish/replace one.
+    // The Android app compresses images to <= 650 KiB before writing the Blob field.
+    match /productImages/{imageDocumentId} {
+      allow get: if true;
+      allow list: if false;
+      allow create, update: if owner() &&
+        request.resource.data.keys().hasOnly(['imageData', 'contentType', 'productId', 'uploadedBy', 'updatedAt']) &&
+        request.resource.data.imageData is bytes &&
+        request.resource.data.contentType == 'image/jpeg' &&
+        request.resource.data.productId is string &&
+        request.resource.data.uploadedBy == request.auth.uid;
+      allow delete: if owner();
+    }
+
+    // Orders remain protected. Payment verification/order creation must be performed
+    // by a trusted server before this collection is opened for writes.
+    match /orders/{orderId} {
+      allow read: if signedIn() && (resource.data.userId == request.auth.uid || owner());
+      allow create, update, delete: if false;
+    }
+  }
+}

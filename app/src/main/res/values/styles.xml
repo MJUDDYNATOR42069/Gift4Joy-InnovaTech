@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ChipText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:background">@drawable/bg_chip_unselected</item>
+        <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:paddingVertical">10dp</item>
+        <item name="android:textColor">#424242</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="CategoryTile">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginHorizontal">4dp</item>
+        <item name="android:background">@drawable/bg_category_tile</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="CategoryIcon">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:tint">#D3154A</item>
+    </style>
+
+    <style name="CategoryText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textColor">#424242</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="StarIcon">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_marginEnd">2dp</item>
+        <item name="android:src">@drawable/ic_star</item>
+    </style>
+
+    <style name="BottomNavItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="BottomNavIcon">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+    </style>
+
+    <style name="BottomNavText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">#757575</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+
+    <style name="BottomNavBadge"></style>
+
+    <style name="ProductTile"></style>
+
+    <style name="ProductBadge"></style>
+
+    <style name="ProductTitle"></style>
+
+    <style name="ProductCategory"></style>
+
+    <style name="ProductPrice"></style>
+
+    <style name="ProductImage"></style>
+
+    <style name="ProductDescription"></style>
+
+
+</resources>

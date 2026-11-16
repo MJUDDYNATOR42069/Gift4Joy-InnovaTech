@@ -1,0 +1,75 @@
+package com.example.gift4joy // Replace with your package name
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
+class ProductActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_product)
+
+        // 1. Get Views
+        val btnBack = findViewById<ImageView>(R.id.btnBack)
+        val tvCategory = findViewById<TextView>(R.id.tvCategory)
+        val tvTitle = findViewById<TextView>(R.id.tvTitle)
+        val tvPrice = findViewById<TextView>(R.id.tvPrice)
+        val tvDescription = findViewById<TextView>(R.id.tvDescription)
+        val tvReviews = findViewById<TextView>(R.id.tvReviews)
+        val btnAddToCart = findViewById<Button>(R.id.btnAddToCart)
+        val btnWishlist = findViewById<Button>(R.id.btnWishlist)
+        val tvReserve = findViewById<TextView>(R.id.tvReserve)
+        val productImage = findViewById<android.widget.ImageView>(R.id.ivProductHero)
+
+        // 2. Extract Data from Intent (if passed)
+        val intent = intent
+        val productTitle = intent.getStringExtra("PRODUCT_TITLE") ?: "Personalised Photo Mug"
+        val productPrice = intent.getStringExtra("PRODUCT_PRICE") ?: "R189"
+        val productCategory = intent.getStringExtra("PRODUCT_CATEGORY") ?: "CORPORATE"
+        val productDesc = intent.getStringExtra("PRODUCT_DESCRIPTION")
+            ?: intent.getStringExtra("PRODUCT_DESC") ?: "No description available."
+        val productId = intent.getStringExtra("PRODUCT_ID") ?: productTitle.lowercase().replace(" ", "_")
+
+        // 3. Bind Data to UI
+        tvTitle.text = productTitle
+        tvCategory.text = productCategory.uppercase()
+        tvPrice.text = productPrice
+        tvDescription.text = productDesc
+        ProductImageLoader.load(intent.getStringExtra("PRODUCT_IMAGE_URL"), productImage)
+
+        // Dynamically update the Add to Cart button text
+        btnAddToCart.text = "Add to cart — $productPrice"
+
+        // 4. Setup Click Listeners
+        btnBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
+        btnAddToCart.setOnClickListener {
+            CartManager.add(this, productTitle, productCategory, productPrice, productId)
+            Toast.makeText(this, "$productTitle added to cart!", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, CartActivity::class.java))
+        }
+
+        btnWishlist.setOnClickListener {
+            val added = WishlistManager.toggle(this, SavedGift(
+                productId, productTitle, productCategory, productPrice, productDesc
+            ))
+            Toast.makeText(this, if (added) "Added to wishlist" else "Removed from wishlist", Toast.LENGTH_SHORT).show()
+        }
+
+        tvReviews.setOnClickListener {
+            // Optional: Scroll to a reviews section or open a bottom sheet
+            Toast.makeText(this, "Viewing 132 reviews", Toast.LENGTH_SHORT).show()
+        }
+
+        tvReserve.setOnClickListener {
+            Toast.makeText(this, "Reservation flow initiated", Toast.LENGTH_SHORT).show()
+        }
+    }
+}
